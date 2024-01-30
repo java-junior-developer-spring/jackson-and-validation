@@ -1,0 +1,32 @@
+plugins {
+    id 'java' // сборка, генерация документации и запуск тестов
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // json string <-> object: сериалайзер и десериалайзер
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.16.1'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.16.1'
+
+    // json string <-> object: аннотации
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.16.1'
+
+    // json string <-> object: дата и время
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.16.1'
+
+    // jakarta validation api + реализация
+    implementation 'org.hibernate.validator:hibernate-validator:8.0.1.Final'
+
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
